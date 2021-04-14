@@ -37,7 +37,7 @@ public class CurrentCompteController {
 	}
 	
 	//Update CurrentComptes
-		@PutMapping(path="/user/{id}/edit")
+		@PutMapping(path="/{id}/edit")
 		public String currentCompteEdit(@PathVariable Integer id, @ModelAttribute CurrentComptes currentComptes) {
 			
 			CurrentComptes current = currentCompteRepository.findById(id);

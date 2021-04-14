@@ -18,7 +18,7 @@ import com.example.accessingdatamysql.domain.Adresse;
 import com.example.accessingdatamysql.domain.User;
 
 @RestController
-@RequestMapping(path="/demo")
+@RequestMapping(path="/user")
 
 public class UserController {
 	
@@ -26,7 +26,7 @@ public class UserController {
 	private IDao<User> userRepository;
 	
 	//Get all users
-	@GetMapping(path="/user")
+	@GetMapping(path="/all")
 	public @ResponseBody Iterable<User> getAllUsers() {
 		return userRepository.findAll();
 	}
