@@ -42,12 +42,12 @@ public class CurrentCompteController {
 			
 			CurrentComptes current = currentCompteRepository.findById(id);
 			
-			currentComptes.setSolde(current.getSolde());
-			currentComptes.setUser(current.getUser());
-			currentComptes.setCreated_at(current.getCreated_at());
-			
-			currentCompteRepository.create(currentComptes);
-			return "user update";
+			current.setDecouvert(currentComptes.getDecouvert());
+			current.setSolde(currentComptes.getSolde());
+			current.setUser(currentComptes.getUser());
+			current.setCreated_at(currentComptes.getCreated_at());
+			currentCompteRepository.create(currentComptes); 
+			return "change currentCompte";
 			
 		}
 }

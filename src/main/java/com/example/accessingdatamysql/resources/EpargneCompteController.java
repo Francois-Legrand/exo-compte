@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.accessingdatamysql.IDao.IDao;
 import com.example.accessingdatamysql.domain.EpargneComptes;
 
-@RequestMapping(path = "compte/epargne")
+@RequestMapping(path = "comptes/epargne")
 @RestController 
 public class EpargneCompteController {
 	@Autowired
@@ -42,12 +42,12 @@ public class EpargneCompteController {
 			
 			EpargneComptes epargne = epargneCompteRepository.findById(id);
 			
-			comptes.setSolde(epargne.getSolde());
-			comptes.setUser(epargne.getUser());
-			comptes.setCreated_at(epargne.getCreated_at());
+			epargne.setSolde(comptes.getSolde());
+			epargne.setUser(comptes.getUser());
+			epargne.setCreated_at(comptes.getCreated_at());
 			
 			epargneCompteRepository.create(comptes);
-			return "user update";
+			return "epargne update";
 			
 		}
 }

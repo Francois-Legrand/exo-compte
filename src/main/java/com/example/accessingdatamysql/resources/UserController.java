@@ -32,7 +32,7 @@ public class UserController {
 	}
 	
 	//Get User
-	@GetMapping(path="/user/{id}")
+	@GetMapping(path="/{id}")
 	public @ResponseBody User one(@PathVariable Integer id) {
 		    
 		return userRepository.findById(id);
@@ -51,7 +51,8 @@ public class UserController {
 		
 	}
 	//Update user
-	@PutMapping(path="/user/{id}/edit")
+	@PutMapping(path="/{id}/edit")
+	
 	public String userEdit(@PathVariable Integer id, @ModelAttribute User usr ,@ModelAttribute Adresse adresse) {
 		
 		User user = userRepository.findById(id);
