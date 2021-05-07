@@ -12,9 +12,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @DiscriminatorValue("RT")
 public class Retrait extends Operations{
 
-	public	Retrait(Double montant, Date date, Comptes comptes) {
+	public Retrait(Double montant, Date date, Comptes comptes) throws Exception {
 		super(montant, date, comptes);
-		comptes.setSolde( montant - comptes.getSolde());
+		comptes.setSolde(comptes.getSolde() - montant);
 	}
 
 	@ManyToOne
@@ -24,6 +24,14 @@ public class Retrait extends Operations{
 	public String toString() {
 		return "Retrait [comptes=" + comptes + ", id=" + id + ", dateOperation=" + dateOperation + ", montant="
 				+ montant + "]";
+	}
+
+	public Comptes getComptes() {
+		return comptes;
+	}
+
+	public void setComptes(Comptes comptes) {
+		this.comptes = comptes;
 	}
 	
 }

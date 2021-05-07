@@ -12,7 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @DiscriminatorValue("VS")
 public class Versement extends Operations{
 	
-	public Versement(Double montant, Date date, Comptes comptes) {
+	public Versement(Double montant, Date date, Comptes comptes) throws Exception {
 		super(montant, date, comptes);
 		comptes.setSolde( montant + comptes.getSolde());
 	}
@@ -20,13 +20,9 @@ public class Versement extends Operations{
 	@ManyToOne
 	private Comptes comptes;
 
-	
-	
 	public Comptes getComptes() {
 		return comptes;
 	}
-
-
 
 	public void setComptes(Comptes comptes) {
 		this.comptes = comptes;

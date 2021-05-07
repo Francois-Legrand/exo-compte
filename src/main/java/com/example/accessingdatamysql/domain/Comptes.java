@@ -37,7 +37,6 @@ public class Comptes implements Serializable{
 	@Column(name = "created_at")
 	private Date created_at;
 	
-	
 	//RelationShip
 	@ManyToOne
 	private User user;
@@ -61,7 +60,8 @@ public class Comptes implements Serializable{
 		return solde;
 	}
 
-	public void setSolde(Double solde) {
+	public void setSolde(Double solde) throws Exception {
+		
 		this.solde = solde;
 	}
 

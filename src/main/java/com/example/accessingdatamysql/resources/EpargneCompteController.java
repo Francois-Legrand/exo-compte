@@ -38,7 +38,7 @@ public class EpargneCompteController {
 	
 	//Update CurrentComptes
 		@PutMapping(path="/{id}/edit")
-		public String currentCompteEdit(@PathVariable Integer id, @ModelAttribute EpargneComptes comptes) {
+		public String currentCompteEdit(@PathVariable Integer id, @ModelAttribute EpargneComptes comptes) throws Exception {
 			
 			EpargneComptes epargne = epargneCompteRepository.findById(id);
 			

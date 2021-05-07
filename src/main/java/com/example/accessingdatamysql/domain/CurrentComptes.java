@@ -11,17 +11,33 @@ public class CurrentComptes extends Comptes{
 	/**
 	 * 
 	 */
-	private int decouvert; 
+	private Double decouvert;
+	private Double solde;
 	private static final long serialVersionUID = 1L;
 	@Transient
 	public String getDecriminatorValue() {
 	    return this.getClass().getAnnotation(DiscriminatorValue.class).value();
 	}
-	public int getDecouvert() {
+	public Double getDecouvert() {
 		return decouvert;
 	}
-	public void setDecouvert(int decouvert) {
+	public void setDecouvert(Double decouvert) {
+		
 		this.decouvert = decouvert;
 	}
-	
+	public Double getSolde() {
+		
+		return solde;
+	}
+	public void setSolde(Double solde) throws Exception {
+		if(solde < decouvert) {
+			throw new Exception("Exception message");
+		}
+		else {
+			this.solde = solde;
+		}
+		
+		
+		
+	}
 }

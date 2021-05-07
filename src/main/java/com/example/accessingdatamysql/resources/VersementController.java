@@ -16,6 +16,7 @@ import com.example.accessingdatamysql.IDao.IDao;
 import com.example.accessingdatamysql.domain.Comptes;
 import com.example.accessingdatamysql.domain.CurrentComptes;
 import com.example.accessingdatamysql.domain.Versement;
+import com.example.accessingdatamysql.repository.ComptesRepository;
 import com.example.accessingdatamysql.repository.VersementRepository;
 
 @RestController
@@ -24,9 +25,9 @@ public class VersementController {
 
 	@Autowired
 	VersementRepository versementRepository;
-	@Autowired
-	private IDao<CurrentComptes> currentCompteRepository;
 	
+	@Autowired
+	ComptesRepository comptesRepository;
 	// Get all comptes
 		@GetMapping(path = "/all")
 		public @ResponseBody Iterable<Versement> getAllVersement() {
@@ -35,11 +36,10 @@ public class VersementController {
 		
 		@PostMapping(path = "/add/{id}")
 		
-		public Versement addNewVersement(@PathVariable Integer id, @RequestParam Double montant, @RequestParam Date dateOperation) {
+		public Versement addNewVersement(@PathVariable Integer id, @RequestParam Double montant, @RequestParam Date dateOperation) throws Exception {
 			
-			CurrentComptes comptes = new CurrentComptes();
-			comptes = currentCompteRepository.findById(id);
-			
+			Comptes comptes = new Comptes();
+			comptes = comptesRepository.findById(id).get();
 			Versement versement = new Versement(montant, dateOperation, comptes);
 			versement.setDateOperation(dateOperation); 
 			versement.setMontant(montant);

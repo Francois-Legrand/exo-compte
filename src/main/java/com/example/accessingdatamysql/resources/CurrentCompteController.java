@@ -38,7 +38,7 @@ public class CurrentCompteController {
 	
 	//Update CurrentComptes
 		@PutMapping(path="/{id}/edit")
-		public String currentCompteEdit(@PathVariable Integer id, @ModelAttribute CurrentComptes currentComptes) {
+		public String currentCompteEdit(@PathVariable Integer id, @ModelAttribute CurrentComptes currentComptes) throws Exception {
 			
 			CurrentComptes current = currentCompteRepository.findById(id);
 			
