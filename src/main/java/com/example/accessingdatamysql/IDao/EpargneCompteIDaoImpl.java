@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.accessingdatamysql.domain.EpargneComptes;
 import com.example.accessingdatamysql.repository.EpargneCompteRepository;
+
 @Service
 public class EpargneCompteIDaoImpl implements IDao<EpargneComptes>{
 
@@ -13,6 +14,7 @@ public class EpargneCompteIDaoImpl implements IDao<EpargneComptes>{
 	
 	@Override
 	public EpargneComptes create(EpargneComptes comptes) {
+		
 		return epargneCompteRepository.save(comptes);
 	}
 
@@ -38,11 +40,13 @@ public class EpargneCompteIDaoImpl implements IDao<EpargneComptes>{
 
 	@Override
 	public EpargneComptes findById(int id) {
+		
 		return epargneCompteRepository.findById(id).get();
 	}
 
 	@Override
 	public Iterable<EpargneComptes> findAll() {
+		
 		return epargneCompteRepository.findAll();
 	}
 

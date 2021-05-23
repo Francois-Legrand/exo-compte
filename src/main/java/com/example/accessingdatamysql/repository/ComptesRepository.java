@@ -5,5 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.example.accessingdatamysql.domain.Comptes;
 
 public interface ComptesRepository extends CrudRepository<Comptes, Integer>{
-
+	
+	
+	
 }

@@ -19,12 +19,6 @@ public class CurrentCompteIDaoImpl implements IDao<CurrentComptes>{
 
 	@Override
 	public void update(int id) {
-		currentCompteRepository.deleteById(id);
-		
-	}
-
-	@Override
-	public void deleteById(int id) {
 		try {
 			if(currentCompteRepository.findById(id).isPresent()) {
 				CurrentComptes currentComptes = currentCompteRepository.findById(id).get();
@@ -35,6 +29,12 @@ public class CurrentCompteIDaoImpl implements IDao<CurrentComptes>{
 			e.printStackTrace();
 		}
 		
+		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		currentCompteRepository.deleteById(id);
 	}
 
 	@Override
