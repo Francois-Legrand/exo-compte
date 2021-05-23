@@ -20,22 +20,20 @@ public class EpargneCompteIDaoImpl implements IDao<EpargneComptes>{
 
 	@Override
 	public void update(int id) {
-		epargneCompteRepository.deleteById(id);
-		
-	}
-
-	@Override
-	public void deleteById(int id) {
 		try {
 			if(epargneCompteRepository.findById(id).isPresent()) {
 				EpargneComptes currentComptes = epargneCompteRepository.findById(id).get();
 				epargneCompteRepository.save(currentComptes);
 			}
 		} catch (Exception e) {
-			
+
 			e.printStackTrace();
 		}
-		
+	}
+
+	@Override
+	public void deleteById(int id) {
+		epargneCompteRepository.deleteById(id);
 	}
 
 	@Override
